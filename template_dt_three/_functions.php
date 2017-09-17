@@ -168,7 +168,7 @@ add_action('pre_get_posts', 'add_orderby_start_date',10);
 
 function add_orderby_start_date($query){
 
-        if (is_search()) {
+        if (is_search()&& get_query_var('orderby')==='') {
             set_query_var('meta_key', 'start_date');
             set_query_var('orderby', 'meta_value');
             set_query_var('order','desc');
