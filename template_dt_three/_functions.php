@@ -168,10 +168,13 @@ add_action('pre_get_posts', 'add_orderby_start_date',10);
 
 function add_orderby_start_date($query){
 
-        if (is_search()&& get_query_var('orderby')==='') {
+        if (is_search() && get_query_var('orderby')===''  &&(isset($_GET['advanced_search'])) ) {
             set_query_var('meta_key', 'start_date');
             set_query_var('orderby', 'meta_value');
             set_query_var('order','desc');
         }
+
 }
+//Start Date(new)[orderby=start_date&order=desc]
+//Start Date(old)[orderby=start_date&order=asc]
 ?>
